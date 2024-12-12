@@ -1,24 +1,23 @@
-import { CanvasContainer } from "./components/CanvasContainer";
-import Hero  from "./components/Hero";
-import About from "./components/About";
-import BuyNow from "./components/BuyNow";
+
+
+import { GridBackgroundDemo } from "./components/GridBackgroundDemo";
+import { BackgroundLinesDemo } from "./components/BackgroundLinesDemo";
 function App() {
   
 
   return (
-  <div className="">
-   <div className="h-screen w-full fixed top-0">
-      <CanvasContainer/>
-    </div>
-    {/* Header */}
-
-    {/* Hero */}
-    <Hero />
+  <div className="relative min-h-screen w-full">
+    <div className="fixed inset-0 w-full h-full">
+    <GridBackgroundDemo/>
+    <BackgroundLinesDemo/>
     
-    <About />
-
-    <BuyNow/>
+    </div>
+    
+    
+    
+ 
   </div>
+
   );
 }
 export default App;
