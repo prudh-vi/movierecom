@@ -1,16 +1,14 @@
 import React from 'react';
 import { Outlet, Link } from "react-router-dom";
 
-import { motion } from 'framer-motion';
+
 import {
   Modal,
  
   ModalTrigger,
 } from './ui/animated-modal';
 
-interface IconProps {
-  className?: string;
-}
+
 
 interface IconWithTextProps {
   icon: React.ReactNode;
