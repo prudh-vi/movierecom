@@ -1,4 +1,4 @@
-import React from "react";
+
 import { BackgroundLines } from "./ui/background-lines";
 
 export function BackgroundLinesDemo() {

@@ -1,6 +1,6 @@
-import React from "react";
+
 import { Cover } from "../components/ui/cover";
-import { AnimatedModalDemo } from "./AnimatedModalDemo";
+
 
 export function CoverDemo() {
   return (

@@ -5,7 +5,7 @@ import { AnimatedModalDemo } from "./components/AnimatedModalDemo";
 
 import { HeroScrollDemo } from "./components/HeroScrollDemo";
 import { Anime } from "./components/Anime";
-import { Review } from "./components/Review";
+
 
 function App() {
   return (
