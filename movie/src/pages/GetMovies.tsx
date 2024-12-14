@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from "../components/ui/Button";
 import { GridBackgroundDemo } from '../components/GridBackgroundDemo';
 import { BackgroundLinesDemo } from '../components/BackgroundLinesDemo';
@@ -17,8 +17,13 @@ import {
 const SelectDemo = () => {
   const [selectedGenre, setSelectedGenre] = useState('');
   const [selectedRating, setSelectedRating] = useState('');
-  const [movies, setMovies] = useState([]);
-  const [error, setError] = useState(null);
+  interface Movie {
+    title: string;
+    rating: number;
+  }
+
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const genres = ['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi', 'Thriller', 'Romance'];

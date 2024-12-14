@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import './index.css'
 import App from './App'
-import GetMovies from './pages/getmovies'
+import GetMovies from './pages/GetMovies'
 import JoinUs from './pages/JoinUs'
 
 const rootElement = document.getElementById('root')

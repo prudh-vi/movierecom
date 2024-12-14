@@ -2,9 +2,12 @@ import React, { createContext, useContext, useEffect, useRef, useState } from 'r
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Context for modal state management
-const ModalContext = createContext({
+const ModalContext = createContext<{
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}>({
   open: false,
-  setOpen: (open: boolean) => {}
+  setOpen: () => {}
 });
 
 // Hook for using modal context
@@ -40,7 +43,7 @@ const useOutsideClick = (ref: React.RefObject<HTMLDivElement>, callback: () => v
 };
 
 // Modal Components
-const Modal = ({ children }) => {
+const Modal: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [open, setOpen] = useState(false);
   
   return (
@@ -50,14 +53,19 @@ const Modal = ({ children }) => {
   );
 };
 
-const ModalTrigger = ({ children, className }) => {
+interface ModalTriggerProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const ModalTrigger: React.FC<ModalTriggerProps> = ({ children, className }) => {
   const { setOpen } = useModal();
   
   return (
     <button
       className={cn(
         'px-4 py-2 rounded-md text-black dark:text-white text-center relative overflow-hidden',
-        className
+        className || ''
       )}
       onClick={() => setOpen(true)}
     >
@@ -66,7 +74,7 @@ const ModalTrigger = ({ children, className }) => {
   );
 };
 
-const Overlay = ({ className }) => (
+const Overlay = ({ className = '' }) => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1, backdropFilter: 'blur(10px)' }}
@@ -100,7 +108,12 @@ const CloseIcon = () => {
   );
 };
 
-const ModalBody = ({ children, className }) => {
+interface ModalBodyProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const ModalBody: React.FC<ModalBodyProps> = ({ children, className = '' }) => {
   const { open } = useModal();
   const modalRef = useRef(null);
   const { setOpen } = useModal();
@@ -120,7 +133,7 @@ const ModalBody = ({ children, className }) => {
           exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
           className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center z-50"
         >
-          <Overlay />
+          <Overlay className="" />
           <motion.div
             ref={modalRef}
             className={cn(
@@ -141,13 +154,23 @@ const ModalBody = ({ children, className }) => {
   );
 };
 
-const ModalContent = ({ children, className }) => (
+interface ModalContentProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const ModalContent: React.FC<ModalContentProps> = ({ children, className = '' }) => (
   <div className={cn('flex flex-col flex-1 p-8 md:p-10', className)}>
     {children}
   </div>
 );
 
-const ModalFooter = ({ children, className }) => (
+interface ModalFooterProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const ModalFooter: React.FC<ModalFooterProps> = ({ children, className = '' }) => (
   <div className={cn('flex justify-end p-4 bg-gray-100 dark:bg-neutral-900', className)}>
     {children}
   </div>

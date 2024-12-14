@@ -1,4 +1,3 @@
-import React from 'react';
 import { Outlet, Link } from "react-router-dom";
 
 
@@ -10,10 +9,6 @@ import {
 
 
 
-interface IconWithTextProps {
-  icon: React.ReactNode;
-  text: string;
-}
 
 export function AnimatedModalDemo() {
   // Using placeholder images since we can't load external URLs
@@ -45,14 +40,4 @@ export function AnimatedModalDemo() {
   );
 }
 
-const IconWithText: React.FC<IconWithTextProps> = ({ icon, text }) => (
-  <div className="flex items-center justify-center">
-    <div className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4">
-      {icon}
-    </div>
-    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-      {text}
-    </span>
-  </div>
-);
 
