@@ -41,7 +41,7 @@ function App() {
       </div>
 
       
-      <div className="absolute bottom-0 inset-0 w-full mt-[20vh]">
+      <div className="absolute bottom-0 inset-0 w-full mt-[66vh]">
           <HeroScrollDemo/>
         </div>
 
